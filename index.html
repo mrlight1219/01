@@ -1,121 +1,82 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>攝影作品集 | Portfolio</title>
-    <style>
-        /* --- 這裡開始是 CSS (調色與排版) --- */
-        body {
-            margin: 0;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        /* 導航列：最上方的盒子 */
-        header {
-            background-color: #fff;
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #ddd;
-        }
-
-        nav a {
-            margin-left: 20px;
-            text-decoration: none;
-            color: #666;
-            font-weight: 500;
-        }
-
-        /* 主視覺區：Hero Section */
-        .hero {
-            height: 60vh;
-            background: #222; /* 之後可以換成你的主打作品圖 */
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
-
-        /* 作品牆：Grid 網格排版 */
-        .gallery {
-            padding: 50px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .photo-box {
-            background-color: #ddd;
-            aspect-ratio: 3 / 2; /* 固定照片比例 */
-            overflow: hidden;
-            position: relative;
-        }
-
-        .photo-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease; /* 特別效果：平滑縮放 */
-        }
-
-        /* 這裡就是你提到的「特別效果」：滑鼠移上去照片會放大一點 */
-        .photo-box:hover img {
-            transform: scale(1.1);
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            font-size: 0.9rem;
-            color: #999;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>攝影作品集 | Portfolio</title>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  
+  <style>
+    /* 這裡只放微調：讓照片格網更漂亮 */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 1rem;
+    }
+    .photo-card {
+      margin-bottom: 0; /* 覆蓋 Pico 預設的間距 */
+      overflow: hidden;
+    }
+    .photo-card img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .photo-card:hover img {
+      transform: scale(1.03);
+    }
+    footer {
+      padding: 2rem 0;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo"><strong>YOUR NAME</strong> PHOTOGRAPHY</div>
-        <nav>
-            <a href="#">作品系列</a>
-            <a href="#">關於我</a>
-            <a href="#">聯絡方式</a>
-        </nav>
-    </header>
+  <header class="container">
+    <nav>
+      <ul>
+        <li><strong>MR. LIGHT PHOTO</strong></li>
+      </ul>
+      <ul>
+        <li><a href="#">Works</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#" class="outline" role="button">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-        <section class="hero">
-            <h1>捕捉瞬間的純粹</h1>
-            <p>自由攝影師的作品空間</p>
-        </section>
+  <main class="container">
+    <section>
+      <hgroup>
+        <h1>捕捉光影的細節</h1>
+        <p>這是一個基於 Pico.css 的極簡攝影空間</p>
+      </hgroup>
+    </section>
 
-        <section class="gallery">
-            <div class="photo-box">
-                <img src="https://via.placeholder.com/600x400" alt="作品一">
-            </div>
-            <div class="photo-box">
-                <img src="https://via.placeholder.com/600x400" alt="作品二">
-            </div>
-            <div class="photo-box">
-                <img src="https://via.placeholder.com/600x400" alt="作品三">
-            </div>
-        </section>
-    </main>
+    <div class="photo-grid">
+      <article class="photo-card">
+        <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800" alt="風景攝影">
+        <footer>風景系列 - 2026</footer>
+      </article>
 
-    <footer>
-        <p>© 2026 Your Name Photography. All Rights Reserved.</p>
-    </footer>
+      <article class="photo-card">
+        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="森林攝影">
+        <footer>自然探索 - 2026</footer>
+      </article>
+
+      <article class="photo-card">
+        <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&q=80&w=800" alt="山脈攝影">
+        <footer>遠征紀錄 - 2026</footer>
+      </article>
+    </div>
+  </main>
+
+  <footer class="container">
+    <small>© 2026 Photography Portfolio • Built with Pico.css</small>
+  </footer>
 
 </body>
 </html>
